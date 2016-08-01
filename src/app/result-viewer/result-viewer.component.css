@@ -7,10 +7,6 @@
 .imageContainer{
   overflow: hidden;
 }
-.imageContainer img{
-  width: 100%;
-}
-
 @media (min-width: 1200px){
   .imageContainer{
     height:222px;
