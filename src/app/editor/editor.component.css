@@ -1,0 +1,42 @@
+.editBtn{
+  position: absolute;
+  right: 70px;
+  opacity: 0.5;
+  top: 6px;
+  padding-top: 6px;
+  cursor: pointer;
+}
+.deleteBtn{
+  position: absolute;
+  right: 5px;
+  opacity: 0.5;
+  /*background: gray;*/
+  top: 6px;
+  cursor: pointer;
+}
+.editBtn.active, .editBtn:hover, .editBtn:focus,.deleteBtn.active, .deleteBtn:hover, .deleteBtn:focus{
+  opacity: 1;
+}
+.glyphicon{
+  padding-right: 4px;
+}
+.list-group-item{
+    overflow: hidden;
+}
+.list-group-item>p {
+    width: 100%;
+    text-align: left;
+}
+.list-group-item>p:first-child{
+    font-size: 16px;
+    font-weight: bold;
+}
+.list-group-item>p:not(:first-child){
+    padding-left: 25px;
+}
+.editContent, .addContent{
+    clear: both;
+    overflow: hidden;
+    padding: 14px;
+    background: #3d4e5f;
+}

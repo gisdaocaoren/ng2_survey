@@ -1,0 +1,92 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="bs-component">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let item of questions;let i= index">
+          <p class="" style="float:left;padding-right: 120px;">{{i+1}}、 {{item.question}}</p>
+          <p class="" style="float:left;">问题类型：{{item.type  | typeName}}</p>
+          <p class="" style="float:left;">长度限制：{{item.minLen}}-{{item.maxLen}}</p>
+
+          <div *ngIf="isEditing && editingQuestion.id == item.id" class='editContent'>
+            <!-- <div class="form-group">
+              <label class="control-label">类型</label>
+              <input class="form-control"  [(ngModel)]="editingQuestion.type" type="text" placeholder="请输入问题类型">
+            </div> -->
+            <div class="form-group">
+              <label class=" control-label">问题类型</label>
+              <div class="radio"><label class="radio-inline">
+                <input type="radio" name='typeRadio' (click)="setEditType('edit','image')" [(ngModel)]="editingQuestion.imageType"   >图片</label>
+              <label class="radio-inline">
+                <input type="radio" name='typeRadio'  (click)="setEditType('edit','text')"  [(ngModel)]="editingQuestion.textType" >文字</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label">问题</label>
+              <input class="form-control"  [(ngModel)]="editingQuestion.question"  type="text" placeholder="请输入问题">
+            </div>
+
+            <div class="form-group">
+              <label class="control-label">最短长度</label>
+              <input class="form-control"  [(ngModel)]="editingQuestion.minLen"  type="text" placeholder="请输入最短长度">
+
+              <label class="control-label">最长长度</label>
+              <input class="form-control"  [(ngModel)]="editingQuestion.maxLen"  type="text" placeholder="请输入最长长度">
+            </div>
+
+            <div class="form-group">
+              <button type="reset" class="btn btn-default" (click)="cancelEdit()">取消</button>
+              <button type="submit" class="btn btn-primary" (click)="update(editingQuestion)">保存</button>
+            </div>
+          </div>
+
+
+          <a (click)="active('edit',item)" class="rbtn btn-info btn-sm editBtn" >
+            <i class="glyphicon glyphicon-edit"></i>编辑
+          </a>
+          <a (click)="delete(item)"  class="rbtn btn-danger btn-sm deleteBtn"  >
+            <i class="glyphicon glyphicon-trash"></i>删除
+          </a>
+        </li>
+
+        <li class="list-group-item addContent" *ngIf="isAdding">
+          <div>
+            <div class="form-group">
+              <label class=" control-label">问题类型</label>
+              <div class="radio"><label class="radio-inline">
+                <input type="radio" name='typeRadio' (click)="setEditType('add','image')" checked  [(ngModel)]="addingQuestion.imageType"   >图片</label>
+              <label class="radio-inline">
+                <input type="radio" name='typeRadio'  (click)="setEditType('add','text')"  [(ngModel)]="addingQuestion.textType"   >文字</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label">问题</label>
+              <input class="form-control"  [(ngModel)]="addingQuestion.question"  type="text" placeholder="请输入问题">
+            </div>
+
+            <div class="form-group">
+              <label class="control-label">最短长度</label>
+              <input class="form-control"  [(ngModel)]="addingQuestion.minLen"  type="number" placeholder="请输入最短长度">
+
+              <label class="control-label">最长长度</label>
+              <input class="form-control"  [(ngModel)]="addingQuestion.maxLen"  type="number" placeholder="请输入最长长度">
+            </div>
+
+            <div class="">
+              <button type="reset" class="btn btn-default" (click)="cancelAdd()">取消</button>
+              <button type="submit" class="btn btn-primary" (click)="add(addingQuestion)">保存</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="btn-group" style="width: 100%;">
+        <a class="btn btn-success  btn-block" (click)="active('add')" style="width: 45%;display: inline-block; margin-right: 10%;">添加问题</a>
+
+        <a class="btn btn-info" (click)="gotoPage('viewer')" style="width: 45%;display: inline-block;">填写问卷</a>
+      </div>
+    </div>
+
+  </div>
+</div>

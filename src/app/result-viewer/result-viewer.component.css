@@ -1,0 +1,33 @@
+.thumbnails{
+  overflow: hidden;
+}
+.form-group{
+  overflow: hidden;
+}
+.imageContainer{
+  overflow: hidden;
+}
+.imageContainer img{
+  width: 100%;
+}
+
+@media (min-width: 1200px){
+  .imageContainer{
+    height:222px;
+    text-align:center;
+    background:#5E7183;
+  }
+  .imageContainer img{
+    height: 100%;
+    /*width: 100%;*/
+  }
+}
+@media (max-width: 1199px){
+  .imageContainer img{
+    width: 100%;
+  }
+}
+.thanksContent{
+  text-align: center;
+  font-size: 16px;
+}

@@ -1,0 +1,72 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="bs-component">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let item of questions;let i= index;">
+          <div>
+            <div class="form-group" *ngIf="item.type=='text'">
+              <p class="" style="float:left;">{{i+1}}、 {{item.question}}</p>
+              <!-- <p class="control-label">{{curSurvey[i].text}}</p> -->
+              <input class="form-control"  [(ngModel)]="curSurvey[i].text"  type="text" placeholder="请输入您的回答">
+
+            </div>
+
+            <div class="form-group" *ngIf="item.type=='image'">
+              <p class="" style="float:left;">{{i+1}}、 {{item.question}} （请上传{{item.minLen}}-{{item.maxLen}}图片）</p>
+              <!-- <label class="control-label">{{item.text}} （请上传图片）</label> -->
+              <!--<div class="view">-->
+                <ul class="thumbnails" style='margin-left:0;'>
+                  <li class="col-lg-4" *ngFor="let image of curSurvey[i].images;let j= index;">
+                    <div class="thumbnail">
+                      <div class="imageContainer" >
+                        <img [src]="image" >
+                      </div>
+                      <div class="caption">
+                        <p>
+                          <a class="btn btn-primary">重新上传
+                            <input type="file" name="file" class='reloadImgBtn' (change)="fileUpdateHandler($event,i,j)" >
+                          </a>
+                          <a class="btn deleteImgBtn" (click)=delteImage(i,j)>删除</a>
+                        </p>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li class="col-lg-4" *ngIf="curSurvey[i].images.length<item.maxLen">
+                    <div class="thumbnail addImageBtn" >
+                      <div class="thumbnail noMargin">
+                        <div class="imageContainer" >
+                          <p class="addImgBtn">
+                            +上传图片
+                          </p>
+                          <input type="file" name="file" class='defaultFileInput' multiple  (change)="fileSelectHandler($event,i)"/>
+                        </div>
+                      </div>
+
+                    </div>
+                  </li>
+                </ul>
+              <!--</div>-->
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="btn-group btn-group-justified">
+        <a class="btn btn-success  btn-block" (click)="submitSurvey()">提交</a>
+      </div>
+    </div>
+
+  </div>
+  <div class="mask" *ngIf="isLoading">
+      <div class="sk-folding-cube" >
+          <div class="sk-cube1 sk-cube"></div>
+          <div class="sk-cube2 sk-cube"></div>
+          <div class="sk-cube4 sk-cube"></div>
+          <div class="sk-cube3 sk-cube"></div>
+        </div>
+        <p>
+          请稍等, {{progress | async}}...
+        </p>
+    </div>
+</div>

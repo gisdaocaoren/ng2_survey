@@ -1,0 +1,55 @@
+/*input[type="file"] {*/
+.defaultFileInput{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  opacity: 0;
+  width: 100%;
+  cursor: pointer;
+}
+.thumbnails{
+  overflow: hidden;
+}
+.form-group{
+  overflow: hidden;
+}
+
+@media (min-width: 1200px){
+  .imageContainer{
+    height:222px;
+    text-align:center;
+    background:#5E7183;
+  }
+  .imageContainer img{
+    height: 100%;
+    /*width: 100%;*/
+  }
+}
+@media (max-width: 1199px){
+  .imageContainer img{
+    width: 100%;
+  }
+}
+.addImageBtn{
+  cursor: pointer;
+}
+.noMargin{
+  margin: 0;
+}
+.addImgBtn{
+  text-align: center;
+  line-height: 200px;
+}
+.reloadImgBtn{
+  position: absolute;
+  width: 94px;
+  height: 40px;
+  margin-top: -30px;
+  margin-left: -17px;
+  opacity: 0;
+  cursor: pointer;
+}
+.deleteImgBtn{
+      border: 1px solid rgba(100, 100, 100, 0.4);
+}

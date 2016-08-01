@@ -1,0 +1,27 @@
+<div class="navbar navbar-default navbar-fixed-top">
+
+  <div class="container">
+    <div class="navbar-header cusPosition" >
+      <a href="../" class="navbar-brand">Survey Demo</a>
+    </div>
+    <ul class="nav navbar-nav cusPosition" >
+      <li>
+        <a [routerLink]="['/editor']" routerLinkActive="active">问卷编辑</a>
+      </li>
+      <li>
+        <a [routerLink]="['/viewer']" routerLinkActive="active">填写问卷</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="container mainContent">
+  <router-outlet></router-outlet>
+  <footer>
+    <div class="row">
+      <div class="col-lg-12">
+        <p>This is just a demo. Made by <a href="https://github.com/gisdaocaoren">zhangn</a></p>
+       </div>
+    </div>
+  </footer>
+</div>
