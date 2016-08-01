@@ -1,7 +1,7 @@
 
 
 ## 运行
-运行 `ng serve` . 浏览器中打开 `http://localhost:4200/`. 
+运行 `ng serve` . 浏览器中打开 `http://localhost:4200/`访问应用. 
 
 # Ng2Survey
 
